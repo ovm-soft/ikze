@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profesjonalny Kalkulator IKZE</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,7 +26,6 @@
         }
     </script>
     <style>
-        /* Custom styles & smooth transitions */
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
@@ -51,7 +51,6 @@
                 </div>
             </div>
             
-            <!-- Controls for Design Customization -->
             <div class="flex items-center space-x-3">
                 <label for="themeSelector" class="text-xs font-medium text-slate-600 hidden sm:inline">Styl / Motyw:</label>
                 <select id="themeSelector" onchange="changeTheme(this.value)" class="text-xs bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
@@ -81,30 +80,21 @@
                     </div>
 
                     <div class="space-y-5">
-                        <!-- Wiek -->
-                        <div>
-                            <div class="flex justify-between items-center mb-1">
-                                <label for="wiek" class="text-sm font-medium text-slate-700">Wiek:</label>
-                                <span id="wiekVal" class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">48</span>
-                            </div>
-                            <input type="range" id="wiekRange" min="18" max="70" value="48" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" oninput="syncInput('wiek', this.value)">
-                            <input type="number" id="wiek" value="48" class="mt-1 w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" oninput="syncRange('wiek', this.value)">
-                        </div>
-
                         <!-- Czas dokonywania wpłat -->
                         <div>
                             <div class="flex justify-between items-center mb-1">
                                 <label for="czasWplat" class="text-sm font-medium text-slate-700">Czas dokonywania wpłat (lata):</label>
                                 <span id="czasWplatVal" class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">17</span>
                             </div>
-                            <input type="range" id="czasWplatRange" min="1" max="40" value="17" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" oninput="syncInput('czasWplat', this.value)">
-                            <input type="number" id="czasWplat" value="17" class="mt-1 w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" oninput="syncRange('czasWplat', this.value)">
+                            <input type="range" id="czasWplatRange" min="5" max="40" value="17" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" oninput="syncInput('czasWplat', this.value)">
+                            <input type="number" id="czasWplat" min="5" value="17" class="mt-1 w-full px-3 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-brand-500 focus:outline-none" oninput="syncRange('czasWplat', this.value)">
+                            <p class="text-xs text-slate-500 mt-1">Aby wypłacić pieniądze na preferencyjnych warunkach, trzeba ukończyć 65 lat i dokonywać wpłat w co najmniej 5 latach kalendarzowych.</p>
                         </div>
 
-                        <!-- Opłata roczna / Wpłata roczna -->
+                        <!-- Wpłata roczna na IKZE -->
                         <div>
                             <div class="flex justify-between items-center mb-1">
-                                <label for="oplataRoczna" class="text-sm font-medium text-slate-700">Opłata roczna (PLN):</label>
+                                <label for="oplataRoczna" class="text-sm font-medium text-slate-700">Wpłata roczna na IKZE (PLN):</label>
                             </div>
                             <input type="number" id="oplataRoczna" value="5000" step="500" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm font-semibold focus:ring-2 focus:ring-brand-500 focus:outline-none" oninput="calculate()">
                         </div>
@@ -127,7 +117,7 @@
                                 <label for="stopaZwrotu" class="text-sm font-medium text-slate-700">Szacowany zysk roczny (%):</label>
                                 <span id="stopaZwrotuVal" class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded">5%</span>
                             </div>
-                            <input type="range" id="stopaZwrotuRange" min="0" max="15" step="0.5" value="5" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" oninput="syncInput('stopaZwrotu', this.value); calculate();">
+                            <input type="range" id="stopaZwrotuRange" min="0" max="15" step="0.5" value="5" class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" oninput="syncInput('stopaZwrotu', this.value)">
                         </div>
                     </div>
                 </div>
@@ -141,69 +131,58 @@
                 <div>
                     <h2 class="text-xl font-bold text-slate-900 pb-4 mb-6 border-b border-slate-100 flex items-center justify-between">
                         <span>Wyniki symulacji i korzyści</span>
-                        <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-medium">Aktywne</span>
+                        <span class="text-xs bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full font-medium">Raport</span>
                     </h2>
 
-                    <!-- Tabela wyników odpowiadająca zapytaniu -->
+                    <!-- Tabela wyników w stylu raportu z kolorowaniem -->
                     <div class="overflow-x-auto">
                         <table class="w-full text-left border-collapse">
                             <tbody>
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-600">Wiek</td>
-                                    <td id="resWiek" class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900">48</td>
-                                </tr>
                                 <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                                     <td class="py-3.5 pr-4 text-sm font-medium text-slate-600">Czas dokonywania wpłat (lata)</td>
                                     <td id="resCzas" class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900">17</td>
                                 </tr>
                                 <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-600">Opłata roczna (Roczna wpłata)</td>
+                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-600">Wpłata roczna na IKZE</td>
                                     <td id="resOplataRoczna" class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900">5,000.00 PLN</td>
                                 </tr>
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors bg-slate-50/50">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-700">Opłata cały czas (Suma wpłat)</td>
-                                    <td id="resOplata calyCzas" class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900">85,000.00 PLN</td>
+                                <tr class="border-b border-slate-100 hover:bg-blue-50/40 transition-colors">
+                                    <td class="py-3.5 pr-4 text-sm font-medium text-blue-900">Opłata cały czas (Suma wpłat)</td>
+                                    <td id="resOplata calyCzas" class="py-3.5 pl-4 text-sm font-bold text-right text-blue-700">85,000.00 PLN</td>
                                 </tr>
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-600">
-                                        <span title="ros: Уменьшение налога за год">Zmniejszenie podatku za rok</span>
-                                        <span class="block text-xs text-slate-400">Ulga podatková roczna</span>
-                                    </td>
-                                    <td id="resUlgaRoczna" class="py-3.5 pl-4 text-sm font-bold text-right text-brand-600">1,600.00 PLN</td>
+                                <tr class="border-b border-slate-100 hover:bg-emerald-50/40 transition-colors">
+                                    <td class="py-3.5 pr-4 text-sm font-medium text-emerald-900">Zmniejszenie podatku za rok (Ulga roczna)</td>
+                                    <td id="resUlgaRoczna" class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700">1,600.00 PLN</td>
                                 </tr>
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors bg-slate-50/50">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-700">
-                                        <span title="ros: Уменьшение налога за весь период">Zmniejszenie podatku za cały okres</span>
-                                        <span class="block text-xs text-slate-400">Suma zwrotów podatkowych</span>
-                                    </td>
-                                    <td id="resUlgaOkres" class="py-3.5 pl-4 text-sm font-bold text-right text-brand-600">27,200.00 PLN</td>
+                                <tr class="border-b border-slate-100 hover:bg-emerald-50/60 transition-colors">
+                                    <td class="py-3.5 pr-4 text-sm font-medium text-emerald-900">Zmniejszenie podatku za cały okres (Suma ulg)</td>
+                                    <td id="resUlgaOkres" class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700">27,200.00 PLN</td>
                                 </tr>
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-600">Zarobki z inwestycji cały czas</td>
-                                    <td id="resZarobki" class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-600">4,250.00 PLN</td>
+                                <tr class="border-b border-slate-100 hover:bg-emerald-50/40 transition-colors">
+                                    <td class="py-3.5 pr-4 text-sm font-medium text-emerald-900">Zarobki z inwestycji cały czas</td>
+                                    <td id="resZarobki" class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700">4,250.00 PLN</td>
                                 </tr>
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors bg-slate-50/50">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-700">Opłata + zarobki cały czas (Kapitał końcowy)</td>
-                                    <td id="resKapitalKoncowy" class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900">89,250.00 PLN</td>
+                                <tr class="border-b border-slate-100 hover:bg-blue-50/40 transition-colors">
+                                    <td class="py-3.5 pr-4 text-sm font-medium text-blue-900">Opłata + zarobki cały czas (Kapitał końcowy)</td>
+                                    <td id="resKapitalKoncowy" class="py-3.5 pl-4 text-sm font-bold text-right text-blue-700">89,250.00 PLN</td>
                                 </tr>
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-600">Wypłata -10% od całej kwoty (Podatek ryczałtowy)</td>
-                                    <td id="resWypplataPodatek" class="py-3.5 pl-4 text-sm font-bold text-right text-red-600">-8,925.00 PLN</td>
+                                <tr class="border-b border-slate-100 hover:bg-red-50/40 transition-colors">
+                                    <td class="py-3.5 pr-4 text-sm font-medium text-red-900">Wypłata -10% od całej kwoty (Podatek ryczałtowy)</td>
+                                    <td id="resWypplataPodatek" class="py-3.5 pl-4 text-sm font-bold text-right text-red-700">-8,925.00 PLN</td>
                                 </tr>
-                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors bg-slate-50/50">
-                                    <td class="py-3.5 pr-4 text-sm font-medium text-slate-700">Zmniejszenie podatku + wypłata -10% (Bilans ryczałtu)</td>
-                                    <td id="resBilansRyczalt" class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900">107,525.00 PLN</td>
+                                <tr class="border-b border-slate-100 hover:bg-indigo-50/40 transition-colors">
+                                    <td class="py-3.5 pr-4 text-sm font-medium text-indigo-900">Zmniejszenie podatku + wypłata -10% (Bilans ryczałtu)</td>
+                                    <td id="resBilansRyczalt" class="py-3.5 pl-4 text-sm font-bold text-right text-indigo-700">107,525.00 PLN</td>
                                 </tr>
-                                <tr class="hover:bg-brand-50/50 transition-colors bg-brand-50 font-semibold">
-                                    <td class="py-4 pr-4 text-base text-brand-900">Całkowita wygoda / Całkowita korzyść finansowa</td>
-                                    <td id="resCalkowitaKorzysc" class="py-4 pl-4 text-base text-right text-brand-700 font-extrabold">18,275.00 PLN</td>
+                                <tr class="hover:bg-brand-100/60 transition-colors bg-brand-50 font-semibold border-t-2 border-brand-200">
+                                    <td class="py-4 pr-4 text-base text-brand-900 font-bold">Całkowita wygoda / Całkowita korzyść finansowa</td>
+                                    <td id="resCalkowitaKorzysc" class="py-4 pl-4 text-base text-right text-brand-800 font-extrabold">18,275.00 PLN</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Export / Action buttons -->
                 <div class="mt-8 pt-6 border-t border-slate-100 flex flex-wrap gap-3 justify-end">
                     <button onclick="window.print()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-xl transition-colors flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -223,132 +202,7 @@
         </div>
     </footer>
 
-    <script>
-        // Synchronizacja suwaków i pól tekstowych
-        function syncInput(id, value) {
-            document.getElementById(id).value = value;
-            document.getElementById(id + 'Val').innerText = value;
-            calculate();
-        }
-
-        function syncRange(id, value) {
-            const rangeElem = document.getElementById(id + 'Range');
-            if (rangeElem) {
-                rangeElem.value = value;
-                document.getElementById(id + 'Val').innerText = value;
-            }
-            calculate();
-        }
-
-        function resetDefaults() {
-            document.getElementById('wiek').value = 48;
-            document.getElementById('wiekRange').value = 48;
-            document.getElementById('wiekVal').innerText = '48';
-
-            document.getElementById('czasWplat').value = 17;
-            document.getElementById('czasWplatRange').value = 17;
-            document.getElementById('czasWplatVal').innerText = '17';
-
-            document.getElementById('oplataRoczna').value = 5000;
-            document.getElementById('stawkaPit').value = 19;
-
-            document.getElementById('stopaZwrotuRange').value = 5;
-            document.getElementById('stopaZwrotuVal').innerText = '5%';
-
-            calculate();
-        }
-
-        // Zmiana motywu / designu strony
-        function changeTheme(theme) {
-            const root = document.documentElement;
-            // Usuwamy klasy stylów dynamicznych
-            document.body.className = "bg-slate-50 text-slate-800 h-full min-h-screen flex flex-col justify-between";
-            
-            if (theme === 'dark') {
-                document.body.classList.add('bg-slate-900', 'text-slate-100');
-                // Dostosowanie kart dla dark mode
-                document.querySelectorAll('section, header, footer').forEach(el => {
-                    el.classList.add('bg-slate-800', 'border-slate-700', 'text-slate-100');
-                    el.classList.remove('bg-white');
-                });
-            } else {
-                document.querySelectorAll('section, header, footer').forEach(el => {
-                    el.classList.remove('bg-slate-800', 'border-slate-700', 'text-slate-100');
-                    el.classList.add('bg-white');
-                });
-
-                if (theme === 'ocean') {
-                    tailwind.config.theme.extend.colors.brand = {
-                        50: '#eff6ff', 100: '#dbeafe', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8'
-                    };
-                } else if (theme === 'sunset') {
-                    tailwind.config.theme.extend.colors.brand = {
-                        50: '#fdf4f8', 100: '#fce7f3', 500: '#ec4899', 600: '#db2777', 700: '#be185d'
-                    };
-                } else {
-                    // emerald
-                    tailwind.config.theme.extend.colors.brand = {
-                        50: '#f0fdf4', 100: '#dcfce7', 500: '#22c55e', 600: '#16a34a', 700: '#15803d'
-                    };
-                }
-            }
-            calculate();
-        }
-
-        // Główna funkcja obliczeniowa
-        function calculate() {
-            // Pobieranie wartości wejściowych
-            const wiek = parseFloat(document.getElementById('wiek').value) || 0;
-            const czasWplat = parseFloat(document.getElementById('czasWplat').value) || 0;
-            const oplataRoczna = parseFloat(document.getElementById('oplataRoczna').value) || 0;
-            const stawkaPit = parseFloat(document.getElementById('stawkaPit').value) / 100;
-            const stopaZwrotu = parseFloat(document.getElementById('stopaZwrotuRange').value) / 100;
-
-            // Obliczenia
-            const sumaWplat = oplataRoczna * czasWplat;
-            const ulgaRoczna = oplataRoczna * stawkaPit;
-            const ulgaOkres = ulgaRoczna * czasWplat;
-
-            // Szacowany zysk z inwestycji (składana roczna stopa zwrotu uproszczona lub baza kapitałowa)
-            let kapitalZZyskami = 0;
-            let biezacyKapital = 0;
-            for (let i = 0; i < czasWplat; i++) {
-                biezacyKapital = (biezacyKapital + oplataRoczna) * (1 + stopaZwrotu);
-            }
-            const zarobkiZInwestycji = biezacyKapital - sumaWplat;
-            const kapitalKoncowy = sumaWplat + (zarobkiZInwestycji > 0 ? zarobkiZInwestycji : 0);
-
-            // Wypłata pomniejszona o podatek ryczałtowy IKZE (10%)
-            const ryczałt10 = kapitalKoncowy * 0.10;
-            const kwotaPoRyczalcie = kapitalKoncowy - ryczałt10;
-
-            // Zmniejszenie podatku + wypłata netto
-            const bilansRyczalt = kwotaPoRyczalcie + ulgaOkres;
-
-            // Całkowita wygoda / korzyść netto (Ulga podatkowa + zyski z inwestycji - podatek ryczałtowy 10%)
-            const calkowitaKorzysc = ulgaOkres + (zarobkiZInwestycji > 0 ? zarobkiZInwestycji : 0) - ryczałt10;
-
-            // Formatowanie liczbowe PLN
-            const formatter = new Intl.NumberFormat('pl-PL', { style: 'currency', currency: 'PLN' });
-
-            // Przypisanie wyników do elementów HTML
-            document.getElementById('resWiek').innerText = wiek;
-            document.getElementById('resCzas').innerText = czasWplat;
-            document.getElementById('resOplataRoczna').innerText = formatter.format(oplataRoczna);
-            document.getElementById('resOplata calyCzas').innerText = formatter.format(sumaWplat);
-            document.getElementById('resUlgaRoczna').innerText = formatter.format(ulgaRoczna);
-            document.getElementById('resUlgaOkres').innerText = formatter.format(ulgaOkres);
-            document.getElementById('resZarobki').innerText = formatter.format(zarobkiZInwestycji > 0 ? zarobkiZInwestycji : 0);
-            document.getElementById('resKapitalKoncowy').innerText = formatter.format(kapitalKoncowy);
-            document.getElementById('resWypplataPodatek').innerText = "-" + formatter.format(ryczałt10);
-            document.getElementById('resBilansRyczalt').innerText = formatter.format(bilansRyczalt);
-            document.getElementById('resCalkowitaKorzysc').innerText = formatter.format(calkowitaKorzysc);
-        }
-
-        // Uruchomienie obliczeń przy starcie strony
-        window.onload = function() {
-            calculate();
-        };
-    </script>
+    <!-- Podpięty zewnętrzny plik JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
