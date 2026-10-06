@@ -1,41 +1,20 @@
 function syncInput(id, value) {
-    if (id === 'czasWplat' && value < 5) {
-        value = 5;
-    }
-
+    if (id === 'czasWplat' && value < 5) value = 5;
     const input = document.getElementById(id);
-    if (input) {
-        input.value = value;
-    }
-
+    if (input) input.value = value;
     const rangeElem = document.getElementById(id + 'Range');
-    if (rangeElem) {
-        rangeElem.value = value;
-    }
-
+    if (rangeElem) rangeElem.value = value;
     const valSpan = document.getElementById(id + 'Val');
-    if (valSpan) {
-        valSpan.innerText = (id === 'stopaZwrotu') ? value + '%' : value;
-    }
-
+    if (valSpan) valSpan.innerText = (id === 'stopaZwrotu') ? value + '%' : value;
     calculate();
 }
 
 function syncRange(id, value) {
-    if (id === 'czasWplat' && value < 5) {
-        value = 5;
-    }
-
+    if (id === 'czasWplat' && value < 5) value = 5;
     const rangeElem = document.getElementById(id + 'Range');
-    if (rangeElem) {
-        rangeElem.value = value;
-    }
-
+    if (rangeElem) rangeElem.value = value;
     const valSpan = document.getElementById(id + 'Val');
-    if (valSpan) {
-        valSpan.innerText = (id === 'stopaZwrotu') ? value + '%' : value;
-    }
-
+    if (valSpan) valSpan.innerText = (id === 'stopaZwrotu') ? value + '%' : value;
     calculate();
 }
 
@@ -43,20 +22,16 @@ function resetDefaults() {
     document.getElementById('czasWplat').value = 17;
     document.getElementById('czasWplatRange').value = 17;
     document.getElementById('czasWplatVal').innerText = '17';
-
     document.getElementById('oplataRoczna').value = 5000;
     document.getElementById('stawkaPit').value = 19;
-
     document.getElementById('stopaZwrotu').value = 5;
     document.getElementById('stopaZwrotuRange').value = 5;
     document.getElementById('stopaZwrotuVal').innerText = '5%';
-
     calculate();
 }
 
 function changeTheme(theme) {
     document.body.className = "bg-slate-50 text-slate-800 h-full min-h-screen flex flex-col justify-between";
-
     if (theme === 'dark') {
         document.body.classList.add('bg-slate-900', 'text-slate-100');
         document.querySelectorAll('section, header, footer').forEach(el => {
@@ -69,29 +44,22 @@ function changeTheme(theme) {
             el.classList.add('bg-white');
         });
     }
-
     calculate();
 }
 
 function calculate() {
     let czasWplat = parseFloat(document.getElementById('czasWplat').value) || 5;
-    if (czasWplat < 5) {
-        czasWplat = 5;
-    }
+    if (czasWplat < 5) czasWplat = 5;
 
     const wplataRoczna = parseFloat(document.getElementById('oplataRoczna').value) || 0;
     const stawkaPit = parseFloat(document.getElementById('stawkaPit').value) / 100;
 
     let stopaZwrotuVal = parseFloat(document.getElementById('stopaZwrotu').value);
-    if (isNaN(stopaZwrotuVal)) {
-        stopaZwrotuVal = 5;
-    }
+    if (isNaN(stopaZwrotuVal)) stopaZwrotuVal = 5;
     const stopaZwrotu = stopaZwrotuVal / 100;
 
     const stopaValSpan = document.getElementById('stopaZwrotuVal');
-    if (stopaValSpan) {
-        stopaValSpan.innerText = stopaZwrotuVal + '%';
-    }
+    if (stopaValSpan) stopaValSpan.innerText = stopaZwrotuVal + '%';
 
     const sumaWplat = wplataRoczna * czasWplat;
     const ulgaRoczna = wplataRoczna * stawkaPit;
@@ -114,7 +82,7 @@ function calculate() {
         currency: 'PLN'
     });
 
-    // Ustawienie tekstowych wartości w tabeli
+    // Przypisanie tekstowe
     document.getElementById('resCzas').innerText = czasWplat;
     document.getElementById('resOplataRoczna').innerText = formatter.format(wplataRoczna);
     document.getElementById('resOplataCalyCzas').innerText = formatter.format(sumaWplat);
@@ -126,30 +94,34 @@ function calculate() {
     document.getElementById('resBilansRyczalt').innerText = formatter.format(bilansRyczalt);
     document.getElementById('resCalkowitaKorzysc').innerText = formatter.format(calkowitaKorzysc);
 
-    // --- Dynamiczne paski wykresów (startujące od prawej strony) ---
-    // Jako punkt odniesienia (max) bierzemy największą wartość w zestawieniu (np. Bilans lub Kapitał końcowy)
-    const maxVal = Math.max(bilansRyczalt, kapitalKoncowy, sumaWplat, 1);
+    // --- Paski wykresów startujące od prawej strony ---
+    const maxVal = Math.max(Math.abs(bilansRyczalt), Math.abs(kapitalKoncowy), Math.abs(sumaWplat), 1);
 
     const updateBar = (elementId, value) => {
         const el = document.getElementById(elementId);
         if (!el) return;
 
-        // Obliczamy procent (ograniczony do 0-100%)
         let pct = Math.min(Math.max((Math.abs(value) / maxVal) * 100, 0), 100);
 
-        // Szukamy paska wewnątrz komórki lub go tworzymy
         let bar = el.querySelector('.chart-bar');
         if (!bar) {
             bar = document.createElement('div');
-            bar.className = 'chart-bar absolute inset-y-0 right-0 -z-0 transition-all duration-300 opacity-30';
-            el.style.position = 'relative';
-            el.style.overflow = 'hidden';
-            el.insertBefore(bar, el.firstChild);
+            bar.className = 'chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-25 pointer-events-none';
+            el.appendChild(bar);
         }
+
+        // Dopasowanie koloru paska w zależności od typu wiersza
+        if (elementId.includes('Wyplata')) {
+            bar.className = 'chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-30 pointer-events-none bg-red-400';
+        } else if (elementId.includes('Ulga') || elementId.includes('Zarobki') || elementId.includes('Calkowita')) {
+            bar.className = 'chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-30 pointer-events-none bg-emerald-400';
+        } else {
+            bar.className = 'chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-30 pointer-events-none bg-blue-400';
+        }
+
         bar.style.width = pct + '%';
     };
 
-    // Przypisanie pasków do odpowiednich wierszy wyników
     updateBar('resOplataCalyCzas', sumaWplat);
     updateBar('resUlgaOkres', ulgaOkres);
     updateBar('resZarobki', zarobkiZInwestycji);
