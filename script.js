@@ -82,7 +82,7 @@ function calculate() {
         currency: 'PLN'
     });
 
-    // Przypisanie tekstowe
+    // Przypisanie tekstowe wyników
     document.getElementById('resCzas').innerText = czasWplat;
     document.getElementById('resOplataRoczna').innerText = formatter.format(wplataRoczna);
     document.getElementById('resOplataCalyCzas').innerText = formatter.format(sumaWplat);
@@ -94,31 +94,32 @@ function calculate() {
     document.getElementById('resBilansRyczalt').innerText = formatter.format(bilansRyczalt);
     document.getElementById('resCalkowitaKorzysc').innerText = formatter.format(calkowitaKorzysc);
 
-    // --- Paski wykresów startujące od prawej strony ---
+    // --- Dynamiczne generowanie pasków wykresów w tabeli ---
     const maxVal = Math.max(Math.abs(bilansRyczalt), Math.abs(kapitalKoncowy), Math.abs(sumaWplat), 1);
 
     const updateBar = (elementId, value) => {
         const el = document.getElementById(elementId);
         if (!el) return;
-
+        
+        // Wymuszenie stylów dla prawidłowego pozycjonowania pasków
+        el.classList.add('relative', 'overflow-hidden');
+        
         let pct = Math.min(Math.max((Math.abs(value) / maxVal) * 100, 0), 100);
-
+        
         let bar = el.querySelector('.chart-bar');
         if (!bar) {
             bar = document.createElement('div');
-            bar.className = 'chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-25 pointer-events-none';
             el.appendChild(bar);
         }
-
-        // Dopasowanie koloru paska w zależności od typu wiersza
+        
+        let colorClass = 'bg-blue-400';
         if (elementId.includes('Wyplata')) {
-            bar.className = 'chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-30 pointer-events-none bg-red-400';
+            colorClass = 'bg-red-400';
         } else if (elementId.includes('Ulga') || elementId.includes('Zarobki') || elementId.includes('Calkowita')) {
-            bar.className = 'chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-30 pointer-events-none bg-emerald-400';
-        } else {
-            bar.className = 'chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-30 pointer-events-none bg-blue-400';
+            colorClass = 'bg-emerald-400';
         }
 
+        bar.className = `chart-bar absolute inset-y-0 right-0 z-0 transition-all duration-300 opacity-35 pointer-events-none ${colorClass}`;
         bar.style.width = pct + '%';
     };
 
