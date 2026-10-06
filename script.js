@@ -114,6 +114,7 @@ function calculate() {
         currency: 'PLN'
     });
 
+    // Ustawienie tekstowych wartości w tabeli
     document.getElementById('resCzas').innerText = czasWplat;
     document.getElementById('resOplataRoczna').innerText = formatter.format(wplataRoczna);
     document.getElementById('resOplataCalyCzas').innerText = formatter.format(sumaWplat);
@@ -124,6 +125,38 @@ function calculate() {
     document.getElementById('resWyplataPodatek').innerText = '-' + formatter.format(ryczalt10);
     document.getElementById('resBilansRyczalt').innerText = formatter.format(bilansRyczalt);
     document.getElementById('resCalkowitaKorzysc').innerText = formatter.format(calkowitaKorzysc);
+
+    // --- Dynamiczne paski wykresów (startujące od prawej strony) ---
+    // Jako punkt odniesienia (max) bierzemy największą wartość w zestawieniu (np. Bilans lub Kapitał końcowy)
+    const maxVal = Math.max(bilansRyczalt, kapitalKoncowy, sumaWplat, 1);
+
+    const updateBar = (elementId, value) => {
+        const el = document.getElementById(elementId);
+        if (!el) return;
+
+        // Obliczamy procent (ograniczony do 0-100%)
+        let pct = Math.min(Math.max((Math.abs(value) / maxVal) * 100, 0), 100);
+
+        // Szukamy paska wewnątrz komórki lub go tworzymy
+        let bar = el.querySelector('.chart-bar');
+        if (!bar) {
+            bar = document.createElement('div');
+            bar.className = 'chart-bar absolute inset-y-0 right-0 -z-0 transition-all duration-300 opacity-30';
+            el.style.position = 'relative';
+            el.style.overflow = 'hidden';
+            el.insertBefore(bar, el.firstChild);
+        }
+        bar.style.width = pct + '%';
+    };
+
+    // Przypisanie pasków do odpowiednich wierszy wyników
+    updateBar('resOplataCalyCzas', sumaWplat);
+    updateBar('resUlgaOkres', ulgaOkres);
+    updateBar('resZarobki', zarobkiZInwestycji);
+    updateBar('resKapitalKoncowy', kapitalKoncowy);
+    updateBar('resWyplataPodatek', ryczalt10);
+    updateBar('resBilansRyczalt', bilansRyczalt);
+    updateBar('resCalkowitaKorzysc', calkowitaKorzysc);
 }
 
 window.onload = function () {
