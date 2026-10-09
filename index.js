@@ -1,5 +1,26 @@
-window.onload = function () {
-    changeLanguage(currentLang);
-    resetDefaults();
-    calculate();
-};
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = resolve;
+        script.onerror = () => reject(new Error(`Failed to load ${src}`));
+        document.head.appendChild(script);
+    });
+}
+
+async function init() {
+    try {
+        await loadScript('theme.js');
+        await loadScript('i18n.js');
+        await loadScript('calc.js');
+
+        // Run initialization logic after all scripts are injected
+        changeLanguage(currentLang);
+        resetDefaults();
+        calculate();
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+init();

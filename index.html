@@ -63,7 +63,6 @@
         </div>
 
         <div class="flex items-center space-x-3">
-            <label for="langSelector" class="text-xs font-medium text-slate-600 hidden sm:inline">Język / Language:</label>
             <select id="langSelector" onchange="changeLanguage(this.value)" class="text-xs bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500">
                 <option value="pl" selected>🇵🇱 Polski</option>
                 <option value="uk">🇺🇦 Українська</option>
@@ -331,9 +330,6 @@
     <div data-i18n="footer_local" class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500"></div>
 </footer>
 
-<script src="theme.js"></script>
-<script src="i18n.js"></script>
-<script src="calc.js"></script>
-<script src="index.js"></script>
+<script src="index.js" defer></script>
 </body>
 </html>
