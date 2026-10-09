@@ -73,12 +73,16 @@
      </label>
      <select class="text-xs bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500" id="themeSelector" onchange="changeTheme(this.value)">
       <option data-i18n="theme_1" value="emerald">
+       Émeraude (Vert)
       </option>
       <option data-i18n="theme_2" value="ocean">
+       Océan (Bleu)
       </option>
       <option data-i18n="theme_3" value="sunset">
+       Coucher de soleil (Violet/Rose)
       </option>
       <option data-i18n="theme_4" value="dark">
+       Sombre (Mode nuit)
       </option>
      </select>
     </div>
@@ -119,10 +123,11 @@
          </path>
         </svg>
         <span data-i18n="label_input_params">
+         Paramètres d'entrée
         </span>
        </h2>
        <button class="text-xs text-brand-600 hover:text-brand-700 font-semibold underline" data-i18n="reset_default_btn" onclick="resetDefaults()">
-        Réinitialiser
+        Réinitialiser par défaut
        </button>
       </div>
       <div class="space-y-5">
@@ -130,20 +135,21 @@
        <div>
         <div class="flex justify-between items-center mb-1">
          <label class="text-sm font-medium text-slate-700" data-i18n="label_years" for="czasWplatRange">
-          Période de versement (années):
+          Période de versement (années) :
          </label>
          <span class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded" id="czasWplatVal">
          </span>
         </div>
         <input class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" id="czasWplatRange" max="45" min="5" oninput="syncSelectedValueLabel('czasWplatVal', this.value)" type="range"/>
         <p class="text-xs text-slate-500 mt-1" data-i18n="label_years_rules">
+         Pour retirer les fonds sous des conditions préférentielles (impôt forfaitaire de 10 % sur la totalité de la somme retirée), vous devez avoir atteint l'âge de 65 ans et avoir effectué des versements sur au moins 5 années civiles distinctes.
         </p>
        </div>
        <!-- Wpłata roczna na IKZE -->
        <div>
         <div class="flex justify-between items-center mb-1">
          <label class="text-sm font-medium text-slate-700" data-i18n="label_annual_deposit" for="oplataRocznaInput">
-          Dépôt annuel:
+          Versement annuel :
          </label>
          <span class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded" id="oplataRocznaVal">
          </span>
@@ -155,31 +161,38 @@
        <div>
         <div class="flex justify-between items-center mb-1">
          <label class="text-sm font-medium text-slate-700" data-i18n="label_tax_rate" for="stawkaPit">
-          Taux d'imposition:
+          Taux d'imposition :
          </label>
         </div>
         <select class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm font-semibold focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white" id="stawkaPit" onchange="calculate()">
          <option data-i18n="label_tax_rate_12" selected="" value="12">
+          12 % (première tranche d'imposition)
          </option>
          <option data-i18n="label_tax_rate_32" value="32">
+          32 % (seconde tranche d'imposition)
          </option>
          <option data-i18n="label_tax_rate_19" value="19">
+          19 % (impôt proportionnel / gains en capital)
          </option>
         </select>
         <p class="text-xs text-slate-500 mt-1" data-i18n="tax_rate_nuance_1">
+         Dépasser la tranche d'imposition ne procure pas toujours 32 % d'avantage sur la totalité du versement.
         </p>
         <p class="text-xs text-slate-500 mt-1" data-i18n="tax_rate_nuance_2">
+         Avec un revenu imposable de 125 000 PLN et un versement annuel de 10 000 PLN : une déduction de 5 000 PLN réduit le revenu imposé à 32 %, et les 5 000 PLN restants celui imposé à 12 %.
         </p>
         <p class="text-xs text-slate-500 mt-1" data-i18n="tax_rate_nuance_3">
+         L'économie s'élève alors à : 5 000 PLN × 32 % + 5 000 PLN × 12 % = 2 200 PLN.
         </p>
         <p class="text-xs text-slate-500 mt-1" data-i18n="tax_rate_nuance_4">
+         En revanche, avec un revenu imposable de 130 000 PLN, l'économie s'élève à : 10 000 PLN × 32 % = 3 200 PLN.
         </p>
        </div>
        <!-- Stopa zwrotu inwestycji -->
        <div>
         <div class="flex justify-between items-center mb-1">
          <label class="text-sm font-medium text-slate-700" data-i18n="label_return_rate" for="stopaZwrotuRange">
-          Rendement annuel estimé:
+          Rendement annuel estimé (obligations, actions, etc.) :
          </label>
          <span class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded" id="stopaZwrotuVal">
          </span>
@@ -189,20 +202,24 @@
        <!-- Typ obliczania odsetek -->
        <div>
         <label class="text-sm font-medium text-slate-700 block mb-2" data-i18n="label_return_calculation_type">
+         Mode de calcul du rendement :
         </label>
         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
          <label class="flex items-center gap-2 px-3 py-2 border border-slate-300 rounded-lg cursor-pointer hover:bg-brand-50 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
           <input checked="" class="h-4 w-4 text-brand-600 focus:ring-brand-500 border-slate-300" id="typAkumulacjiTak" name="typAkumulacji" onchange="calculate()" type="radio" value="z_akumulacja"/>
           <span class="text-sm font-semibold text-slate-700" data-i18n="radio_return_calculation_type_accu">
+           % avec capitalisation (intérêts composés)
           </span>
          </label>
          <label class="flex items-center gap-2 px-3 py-2 border border-slate-300 rounded-lg cursor-pointer hover:bg-brand-50 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
           <input class="h-4 w-4 text-brand-600 focus:ring-brand-500 border-slate-300" id="typAkumulacjiNie" name="typAkumulacji" onchange="calculate()" type="radio" value="bez_akumulacji"/>
           <span class="text-sm font-semibold text-slate-700" data-i18n="radio_return_calculation_type_simple">
+           % sans capitalisation (intérêts simples)
           </span>
          </label>
         </div>
         <p class="text-xs text-slate-500 mt-1" data-i18n="return_calculation_type_comment">
+         Composé — les gains génèrent de nouveaux gains. Simple — les gains sont toujours calculés uniquement sur le cumul des versements.
         </p>
        </div>
       </div>
@@ -213,9 +230,11 @@
       </span>
       •
       <span data-i18n="env_no_server">
+       Sans serveur
       </span>
       •
       <span data-i18n="env_local">
+       Fonctionne localement dans le navigateur
       </span>
      </div>
     </section>
@@ -235,9 +254,11 @@
           <td class="py-3.5 pr-4 text-sm font-bold text-slate-700">
           </td>
           <td class="underline py-3.5 pl-4 text-sm font-bold text-center text-slate-700" data-i18n="ikze">
+           IKZE
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-center text-slate-700" title="19% Belki, bez ulgi podatkowej">
            <span class="underline decoration-slate-400 decoration-dotted underline-offset-4 hover:decoration-slate-600 transition-colors" data-i18n="results_no_ikze">
+            Sans IKZE
            </span>
            <span class="cursor-help text-slate-400 font-normal">
             ⓘ
@@ -248,6 +269,7 @@
         <tbody>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-slate-100 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-slate-700" data-i18n="results_label_years_2">
+           Période de versement (années)
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900" id="resCzasIKZE">
           </td>
@@ -256,10 +278,12 @@
          </tr>
          <tr class="bg-blue-100/50 border-y border-blue-200">
           <th class="py-2 px-4 text-xs font-bold uppercase tracking-wider text-blue-900 text-left" colspan="3" data-i18n="results_deposits_section">
+           Versements
           </th>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-slate-100 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-slate-700" data-i18n="results_1_year">
+           par an
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900" id="resOplataRocznaIKZE">
           </td>
@@ -268,6 +292,7 @@
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-blue-50/75 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-blue-700" data-i18n="results_all_years">
+           sur toute la période
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-blue-700 relative overflow-hidden" id="resOplataCalyCzasIKZE">
           </td>
@@ -276,30 +301,37 @@
          </tr>
          <tr class="bg-emerald-100/50 border-y border-emerald-200">
           <th class="py-2 px-4 text-xs font-bold uppercase tracking-wider text-emerald-900 text-left" colspan="3" data-i18n="results_tax_deduction">
+           Déduction fiscale
           </th>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-emerald-50/60 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-slate-700" data-i18n="results_1_year">
+           par an
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900 relative overflow-hidden" id="resUlgaRoczna">
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900 relative overflow-hidden" data-i18n="results_na">
+           N/A
           </td>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-emerald-50/80 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-emerald-700" data-i18n="results_all_years">
+           sur toute la période
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700 relative overflow-hidden" id="resUlgaOkres">
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700 relative overflow-hidden" data-i18n="results_na">
+           N/A
           </td>
          </tr>
          <tr class="bg-blue-100/50 border-y border-blue-200">
           <th class="py-2 px-4 text-xs font-bold uppercase tracking-wider text-blue-900 text-left" colspan="3" data-i18n="results_invest">
+           Investissement
           </th>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-blue-50/75 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-blue-700" data-i18n="results_all_years_earn">
+           Gains totaux sur la période
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-blue-700 relative overflow-hidden" id="resZarobkiIKZE">
           </td>
@@ -308,10 +340,12 @@
          </tr>
          <tr class="bg-emerald-100/50 border-y border-emerald-200">
           <th class="py-2 px-4 text-xs font-bold uppercase tracking-wider text-emerald-900 text-left" colspan="3" data-i18n="results_summary">
+           Résumé
           </th>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-emerald-50/80 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-emerald-700" data-i18n="results_final_benefit_brutto">
+           Capital final BRUT (versements + gains)
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700 relative overflow-hidden" id="resKapitalKoncowyIKZE">
           </td>
@@ -320,14 +354,17 @@
          </tr>
          <tr class="border-b border-slate-100 bg-red-50/40 hover:bg-red-50/70 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-red-900" data-i18n="results_10_percent_tax">
+           Impôt forfaitaire (-10 % du capital final)
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-red-700 relative overflow-hidden" id="resWyplataPodatek">
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-red-700 relative overflow-hidden" data-i18n="results_na">
+           N/A
           </td>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-emerald-50/80 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-emerald-700" data-i18n="results_final_benefit_netto">
+           Capital final NET (après impôt forfaitaire)
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700 relative overflow-hidden" id="kapitalKoncowyPoRyczalcieIKZE">
           </td>
@@ -337,8 +374,10 @@
          <tr class="hover:bg-amber-100 transition-colors bg-amber-100/60 font-semibold border-t-2 border-brand-200">
           <td class="uppercase tracking-wider py-4 px-4 text-base text-brand-900 font-bold">
            <span data-i18n="results_total_benefit">
+            Bénéfice net
            </span>
            <p class="text-xs text-slate-500 mt-1" data-i18n="results_total_benefit_comment">
+            (NET - versements[ + déduction])
            </p>
           </td>
           <td class="py-4 pl-4 text-base text-right text-brand-800 font-extrabold relative overflow-hidden" id="resCalkowitaKorzyscIKZE">
@@ -357,6 +396,7 @@
         </path>
        </svg>
        <span data-i18n="results_print">
+        Imprimer / Enregistrer en PDF
        </span>
       </button>
      </div>
@@ -364,31 +404,39 @@
     <!-- Sekcja information -->
     <section class="lg:col-span-12 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-100 flex flex-col justify-between">
      <h2 class="text-xl font-bold text-slate-900 pb-4 mb-6 border-b border-slate-100" data-i18n="info_title">
+      Le saviez-vous ?
      </h2>
      <div class="space-y-6 text-slate-700 leading-relaxed text-base">
       <p class="text-lg text-slate-800 font-medium">
        <strong data-i18n="ikze">
+        IKZE
        </strong>
        <span data-i18n="info_ikze_is">
+        (Compte Individuel de Sécurisation de la Retraite) est un moyen d'épargner volontairement et de façon privée pour votre future retraite.
        </span>
       </p>
       <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
        <h3 class="font-semibold text-slate-900 mb-2">
         🌟
         <span data-i18n="info_main_pros">
+         Principaux avantages :
         </span>
        </h3>
        <ul class="list-disc pl-5 space-y-1">
         <li>
          <strong data-i18n="info_zwrot_podatku">
+          Remboursement d'impôt :
          </strong>
          <span data-i18n="info_zwrot_podatku_text">
+          vous déduisez les sommes versées de votre revenu et obtenez un remboursement de l'administration fiscale.
          </span>
         </li>
         <li>
          <strong data-i18n="info_brak_belki">
+          Exonération de l'impôt sur les plus-values :
          </strong>
          <span data-i18n="info_brak_belki_text">
+          vos gains ne sont pas soumis à l'impôt de 19 % sur les plus-values mobilières.
          </span>
         </li>
        </ul>
@@ -397,11 +445,13 @@
        <h3 class="font-semibold text-slate-900 mb-2">
         💰
         <span data-i18n="info_co_jeszcze_warto">
+         Que faut-il savoir d'autre sur les versements ?
         </span>
        </h3>
        <ul class="list-disc pl-5 space-y-1">
         <li>
          <span data-i18n="info_kwoty_od_100">
+          Vous pouvez verser le montant de votre choix, dès
          </span>
          <strong>
           100 zł
@@ -409,8 +459,10 @@
          .
         </li>
         <li data-i18n="info_max_limit">
+         Chaque année, un plafond maximal de versement s'applique (à vérifier dans le calculateur).
         </li>
         <li data-i18n="info_osoby_uprawnione">
+         Vous pouvez désigner des bénéficiaires pour recevoir les fonds à votre décès — il n'est pas nécessaire qu'ils aient un lien de parenté.
         </li>
        </ul>
       </div>
@@ -418,25 +470,32 @@
        <h3 class="font-semibold text-slate-900 mb-3">
         🔄
         <span data-i18n="info_wyplata_zwrot_transfer">
+         Retrait, remboursement anticipé et transfert — quelles différences ?
         </span>
        </h3>
        <div class="grid gap-3 sm:grid-cols-3">
         <div class="p-3 bg-emerald-50 border border-emerald-100 rounded-lg">
          <span class="font-bold text-emerald-900 block mb-1" data-i18n="info_wyplata">
+          Retrait (après respect de toutes les conditions)
          </span>
          <span class="text-xs text-emerald-800" data-i18n="info_wyplata_1">
+          Seulement 10 % d'impôt forfaitaire sur la totalité du montant
          </span>
         </div>
         <div class="p-3 bg-amber-50 border border-amber-100 rounded-lg">
          <span class="font-bold text-amber-900 block mb-1" data-i18n="info_zwrot">
+          Remboursement anticipé
          </span>
          <span class="text-xs text-amber-800" data-i18n="info_zwrot_1">
+          La totalité de la somme est soumise au barème progressif de l'impôt sur le revenu (PIT)
          </span>
         </div>
         <div class="p-3 bg-blue-50 border border-blue-100 rounded-lg">
          <span class="font-bold text-blue-900 block mb-1" data-i18n="info_transfer">
+          Transfert vers un autre IKZE
          </span>
          <span class="text-xs text-blue-800" data-i18n="info_transfer_1">
+          Totalement exonéré d'impôt
          </span>
         </div>
        </div>
@@ -445,9 +504,11 @@
        <h3 class="font-semibold text-slate-900 mb-1">
         🎒
         <span data-i18n="info_16_lat">
+         IKZE accessible dès 16 ans !
         </span>
        </h3>
        <p data-i18n="info_16_lat_nuance">
+        Jusqu'à 18 ans, vous ne pouvez verser sur un IKZE que de l'argent gagné dans le cadre d'un contrat de travail (dans la limite du revenu perçu). Après 18 ans — depuis n'importe quelle source de revenus.
        </p>
       </div>
      </div>
@@ -456,6 +517,7 @@
   </main>
   <footer class="bg-white border-t border-slate-200 mt-12 py-6">
    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500" data-i18n="footer_local">
+    Tous les calculs sont effectués localement dans le navigateur de l'utilisateur.
    </div>
   </footer>
   <script defer="" src="../index.js">
