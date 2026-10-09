@@ -7,15 +7,15 @@ function changeLanguage(selectedLang) {
     const pathSegments = currentPath.split('/').filter(Boolean);
     const knownLangs = ['pl', 'uk', 'en', 'fr', 'de'];
 
-    let targetUrl;
+    let targetUrl = 'ikze';
 
     if (pathSegments.length > 0 && knownLangs.includes(pathSegments[0])) {
         // Replace current language folder in path: /pl/page -> /uk/page
         pathSegments[0] = selectedLang;
-        targetUrl = '/' + pathSegments.join('/') + '/';
+        targetUrl += '/' + pathSegments.join('/') + '/';
     } else {
         // Currently at root -> navigate to /<lang>/
-        targetUrl = '/' + selectedLang + '/';
+        targetUrl += '/' + selectedLang + '/';
     }
 
     // Perform redirect
