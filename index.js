@@ -10,10 +10,10 @@ function loadScript(src) {
 
 async function init() {
     try {
-        await loadScript('/theme.js');
-        await loadScript('/i18n.js');
-        await loadScript('/chart.js');
-        await loadScript('/calc.js');
+        await loadScript('/ikze/theme.js');
+        await loadScript('/ikze/i18n.js');
+        await loadScript('/ikze/chart.js');
+        await loadScript('/ikze/calc.js');
 
         resetDefaults();
         calculate();
