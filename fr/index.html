@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html class="h-full" lang="pl">
+<html class="h-full" lang="fr">
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title data-i18n="title">
-   Kalkulator IKZE
+   Calculateur IKZE
   </title>
   <link href="/ikze/favicon.ico" rel="icon" type="image/x-icon"/>
   <!-- Tailwind CSS CDN -->
@@ -37,7 +37,7 @@
             accent-color: #16a34a;
         }
   </style>
-  <link href="https://ovm-soft.github.io/ikze/pl/" rel="canonical"/>
+  <link href="https://ovm-soft.github.io/ikze/fr/" rel="canonical"/>
   <link href="https://ovm-soft.github.io/ikze/pl/" hreflang="pl" rel="alternate"/>
   <link href="https://ovm-soft.github.io/ikze/uk/" hreflang="uk" rel="alternate"/>
   <link href="https://ovm-soft.github.io/ikze/en/" hreflang="en" rel="alternate"/>
@@ -57,10 +57,10 @@
      </div>
      <div>
       <h1 class="text-lg font-bold tracking-tight text-slate-900" data-i18n="title">
-       Kalkulator IKZE
+       Calculateur IKZE
       </h1>
       <p class="text-xs text-slate-500" data-i18n="subtitle">
-       Optymalizacja podatkowa i emerytalna
+       Optimisation fiscale et retraite
       </p>
       <p class="text-xs text-slate-500">
        gov.pl/web/rodzina/ikze-indywidualne-konto-zabezpieczenia-emerytalnego
@@ -73,23 +73,19 @@
      </label>
      <select class="text-xs bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500" id="themeSelector" onchange="changeTheme(this.value)">
       <option data-i18n="theme_1" value="emerald">
-       Szmaragdowy (Zielony)
       </option>
       <option data-i18n="theme_2" value="ocean">
-       Oceaniczny (Niebieski)
       </option>
       <option data-i18n="theme_3" value="sunset">
-       Zachód słońca (Fiolet/Róż)
       </option>
       <option data-i18n="theme_4" value="dark">
-       Ciemny (Dark Mode)
       </option>
      </select>
     </div>
     <nav aria-label="Language selector">
      <div class="flex items-center space-x-3">
       <select class="text-xs bg-slate-100 border border-slate-300 rounded-lg px-3 py-2 font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-brand-500" id="langSelector" onchange="changeLanguage(this.value)">
-       <option selected="selected" value="pl">
+       <option value="pl">
         🇵🇱 Polski
        </option>
        <option value="uk">
@@ -98,7 +94,7 @@
        <option value="en">
         🇬🇧 English
        </option>
-       <option value="fr">
+       <option selected="selected" value="fr">
         🇫🇷 Français
        </option>
        <option value="de">
@@ -123,11 +119,10 @@
          </path>
         </svg>
         <span data-i18n="label_input_params">
-         Parametry wejściowe
         </span>
        </h2>
        <button class="text-xs text-brand-600 hover:text-brand-700 font-semibold underline" data-i18n="reset_default_btn" onclick="resetDefaults()">
-        Resetuj domyślne
+        Réinitialiser
        </button>
       </div>
       <div class="space-y-5">
@@ -135,21 +130,20 @@
        <div>
         <div class="flex justify-between items-center mb-1">
          <label class="text-sm font-medium text-slate-700" data-i18n="label_years" for="czasWplatRange">
-          Czas dokonywania wpłat (lata):
+          Période de versement (années):
          </label>
          <span class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded" id="czasWplatVal">
          </span>
         </div>
         <input class="w-full h-2 bg-slate-200 rounded-lg cursor-pointer" id="czasWplatRange" max="45" min="5" oninput="syncSelectedValueLabel('czasWplatVal', this.value)" type="range"/>
         <p class="text-xs text-slate-500 mt-1" data-i18n="label_years_rules">
-         Aby wypłacić pieniądze na preferencyjnych warunkach (10% od całej wypłacanej kwoty), trzeba ukończyć 65 lat i dokonywać wpłat w co najmniej 5 dowolnych latach kalendarzowych.
         </p>
        </div>
        <!-- Wpłata roczna na IKZE -->
        <div>
         <div class="flex justify-between items-center mb-1">
          <label class="text-sm font-medium text-slate-700" data-i18n="label_annual_deposit" for="oplataRocznaInput">
-          Wpłata roczna:
+          Dépôt annuel:
          </label>
          <span class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded" id="oplataRocznaVal">
          </span>
@@ -161,38 +155,31 @@
        <div>
         <div class="flex justify-between items-center mb-1">
          <label class="text-sm font-medium text-slate-700" data-i18n="label_tax_rate" for="stawkaPit">
-          Stawka podatku:
+          Taux d'imposition:
          </label>
         </div>
         <select class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm font-semibold focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white" id="stawkaPit" onchange="calculate()">
          <option data-i18n="label_tax_rate_12" selected="" value="12">
-          12% (pierwszy próg podatkowy)
          </option>
          <option data-i18n="label_tax_rate_32" value="32">
-          32% (drugi próg podatkowy)
          </option>
          <option data-i18n="label_tax_rate_19" value="19">
-          19% (podatek liniowy / zyski kapitałowe)
          </option>
         </select>
         <p class="text-xs text-slate-500 mt-1" data-i18n="tax_rate_nuance_1">
-         Przekroczenie progu podatkowego nie zawsze daje 32% korzyści od całej wpłaty.
         </p>
         <p class="text-xs text-slate-500 mt-1" data-i18n="tax_rate_nuance_2">
-         Przy podstawie opodatkowania 125 000 zł i wpłacie rocznej 10 000 zł: 5 000 zł odliczenia zmniejsza dochód objęty stawką 32%, a kolejne 5 000 zł – stawką 12%.
         </p>
         <p class="text-xs text-slate-500 mt-1" data-i18n="tax_rate_nuance_3">
-         Oszczędność wynosi wtedy: 5 000 zł × 32% + 5 000 zł × 12% = 2 200 zł.
         </p>
         <p class="text-xs text-slate-500 mt-1" data-i18n="tax_rate_nuance_4">
-         Natomiast przy podstawie opodatkowania 130 000 zł oszczędność wynosi: 10 000 zł × 32% = 3 200 zł.
         </p>
        </div>
        <!-- Stopa zwrotu inwestycji -->
        <div>
         <div class="flex justify-between items-center mb-1">
          <label class="text-sm font-medium text-slate-700" data-i18n="label_return_rate" for="stopaZwrotuRange">
-          Szacowany zysk roczny (obligacje, akcje, itp.):
+          Rendement annuel estimé:
          </label>
          <span class="text-sm font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded" id="stopaZwrotuVal">
          </span>
@@ -202,39 +189,33 @@
        <!-- Typ obliczania odsetek -->
        <div>
         <label class="text-sm font-medium text-slate-700 block mb-2" data-i18n="label_return_calculation_type">
-         Typ naliczania zysku:
         </label>
         <div class="flex flex-col sm:flex-row gap-2 sm:gap-4">
          <label class="flex items-center gap-2 px-3 py-2 border border-slate-300 rounded-lg cursor-pointer hover:bg-brand-50 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
           <input checked="" class="h-4 w-4 text-brand-600 focus:ring-brand-500 border-slate-300" id="typAkumulacjiTak" name="typAkumulacji" onchange="calculate()" type="radio" value="z_akumulacja"/>
           <span class="text-sm font-semibold text-slate-700" data-i18n="radio_return_calculation_type_accu">
-           % od akumulacji zysku (procent składany)
           </span>
          </label>
          <label class="flex items-center gap-2 px-3 py-2 border border-slate-300 rounded-lg cursor-pointer hover:bg-brand-50 has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
           <input class="h-4 w-4 text-brand-600 focus:ring-brand-500 border-slate-300" id="typAkumulacjiNie" name="typAkumulacji" onchange="calculate()" type="radio" value="bez_akumulacji"/>
           <span class="text-sm font-semibold text-slate-700" data-i18n="radio_return_calculation_type_simple">
-           % bez akumulacji (procent prosty)
           </span>
          </label>
         </div>
         <p class="text-xs text-slate-500 mt-1" data-i18n="return_calculation_type_comment">
-         Składany - zysk generuje kolejny zysk. Prosty - zysk liczony zawsze od samej sumy wpłat.
         </p>
        </div>
       </div>
      </div>
      <div class="mt-8 pt-4 border-t border-slate-100 text-xs text-slate-400 text-center">
       <span data-i18n="title">
-       Kalkulator IKZE
+       Calculateur IKZE
       </span>
       •
       <span data-i18n="env_no_server">
-       Bez serwera
       </span>
       •
       <span data-i18n="env_local">
-       Działa lokalnie w przeglądarce
       </span>
      </div>
     </section>
@@ -243,7 +224,7 @@
      <div>
       <h2 class="text-xl font-bold text-slate-900 pb-4 mb-6 border-b border-slate-100 flex items-center justify-between">
        <span data-i18n="results_title">
-        Wyniki symulacji
+        Résultats de la simulation
        </span>
       </h2>
       <!-- Tabela wyników -->
@@ -254,11 +235,9 @@
           <td class="py-3.5 pr-4 text-sm font-bold text-slate-700">
           </td>
           <td class="underline py-3.5 pl-4 text-sm font-bold text-center text-slate-700" data-i18n="ikze">
-           IKZE
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-center text-slate-700" title="19% Belki, bez ulgi podatkowej">
            <span class="underline decoration-slate-400 decoration-dotted underline-offset-4 hover:decoration-slate-600 transition-colors" data-i18n="results_no_ikze">
-            Bez IKZE
            </span>
            <span class="cursor-help text-slate-400 font-normal">
             ⓘ
@@ -269,7 +248,6 @@
         <tbody>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-slate-100 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-slate-700" data-i18n="results_label_years_2">
-           Czas dokonywania wpłat (lata)
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900" id="resCzasIKZE">
           </td>
@@ -278,12 +256,10 @@
          </tr>
          <tr class="bg-blue-100/50 border-y border-blue-200">
           <th class="py-2 px-4 text-xs font-bold uppercase tracking-wider text-blue-900 text-left" colspan="3" data-i18n="results_deposits_section">
-           Wpłaty
           </th>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-slate-100 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-slate-700" data-i18n="results_1_year">
-           za rok
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900" id="resOplataRocznaIKZE">
           </td>
@@ -292,7 +268,6 @@
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-blue-50/75 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-blue-700" data-i18n="results_all_years">
-           za cały okres
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-blue-700 relative overflow-hidden" id="resOplataCalyCzasIKZE">
           </td>
@@ -301,37 +276,30 @@
          </tr>
          <tr class="bg-emerald-100/50 border-y border-emerald-200">
           <th class="py-2 px-4 text-xs font-bold uppercase tracking-wider text-emerald-900 text-left" colspan="3" data-i18n="results_tax_deduction">
-           Ulga podatkowa
           </th>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-emerald-50/60 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-slate-700" data-i18n="results_1_year">
-           za rok
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900 relative overflow-hidden" id="resUlgaRoczna">
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-slate-900 relative overflow-hidden" data-i18n="results_na">
-           Nie dotyczy
           </td>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-emerald-50/80 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-emerald-700" data-i18n="results_all_years">
-           za cały okres
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700 relative overflow-hidden" id="resUlgaOkres">
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700 relative overflow-hidden" data-i18n="results_na">
-           Nie dotyczy
           </td>
          </tr>
          <tr class="bg-blue-100/50 border-y border-blue-200">
           <th class="py-2 px-4 text-xs font-bold uppercase tracking-wider text-blue-900 text-left" colspan="3" data-i18n="results_invest">
-           Inwestowanie
           </th>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-blue-50/75 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-blue-700" data-i18n="results_all_years_earn">
-           Zarobki za cały okres
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-blue-700 relative overflow-hidden" id="resZarobkiIKZE">
           </td>
@@ -340,12 +308,10 @@
          </tr>
          <tr class="bg-emerald-100/50 border-y border-emerald-200">
           <th class="py-2 px-4 text-xs font-bold uppercase tracking-wider text-emerald-900 text-left" colspan="3" data-i18n="results_summary">
-           Podsumowanie
           </th>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-emerald-50/80 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-emerald-700" data-i18n="results_final_benefit_brutto">
-           Kapitał końcowy BRUTTO (wpłaty + zarobki)
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700 relative overflow-hidden" id="resKapitalKoncowyIKZE">
           </td>
@@ -354,17 +320,14 @@
          </tr>
          <tr class="border-b border-slate-100 bg-red-50/40 hover:bg-red-50/70 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-red-900" data-i18n="results_10_percent_tax">
-           Podatek ryczałtowy (-10% od kapitału końcowego)
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-red-700 relative overflow-hidden" id="resWyplataPodatek">
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-red-700 relative overflow-hidden" data-i18n="results_na">
-           Nie dotyczy
           </td>
          </tr>
          <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-emerald-50/80 transition-colors">
           <td class="py-3.5 pr-4 text-sm font-medium text-emerald-700" data-i18n="results_final_benefit_netto">
-           Kapitał końcowy NETTO (po ryczałcie)
           </td>
           <td class="py-3.5 pl-4 text-sm font-bold text-right text-emerald-700 relative overflow-hidden" id="kapitalKoncowyPoRyczalcieIKZE">
           </td>
@@ -374,10 +337,8 @@
          <tr class="hover:bg-amber-100 transition-colors bg-amber-100/60 font-semibold border-t-2 border-brand-200">
           <td class="uppercase tracking-wider py-4 px-4 text-base text-brand-900 font-bold">
            <span data-i18n="results_total_benefit">
-            Czysty zysk
            </span>
            <p class="text-xs text-slate-500 mt-1" data-i18n="results_total_benefit_comment">
-            (NETTO - wpłaty[ + ulga])
            </p>
           </td>
           <td class="py-4 pl-4 text-base text-right text-brand-800 font-extrabold relative overflow-hidden" id="resCalkowitaKorzyscIKZE">
@@ -396,7 +357,6 @@
         </path>
        </svg>
        <span data-i18n="results_print">
-        Drukuj / Zapisz PDF
        </span>
       </button>
      </div>
@@ -404,39 +364,31 @@
     <!-- Sekcja information -->
     <section class="lg:col-span-12 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-100 flex flex-col justify-between">
      <h2 class="text-xl font-bold text-slate-900 pb-4 mb-6 border-b border-slate-100" data-i18n="info_title">
-      Ciekawostki
      </h2>
      <div class="space-y-6 text-slate-700 leading-relaxed text-base">
       <p class="text-lg text-slate-800 font-medium">
        <strong data-i18n="ikze">
-        IKZE
        </strong>
        <span data-i18n="info_ikze_is">
-        (Indywidualne Konto Zabezpieczenia Emerytalnego) to sposób na dobrowolne i prywatne oszczędzanie pieniędzy na przyszłą emeryturę.
        </span>
       </p>
       <div class="bg-slate-50 p-4 rounded-xl border border-slate-100">
        <h3 class="font-semibold text-slate-900 mb-2">
         🌟
         <span data-i18n="info_main_pros">
-         Najważniejsze zalety:
         </span>
        </h3>
        <ul class="list-disc pl-5 space-y-1">
         <li>
          <strong data-i18n="info_zwrot_podatku">
-          Zwrot podatku:
          </strong>
          <span data-i18n="info_zwrot_podatku_text">
-          wpłacone środki odliczasz od dochodu i uzyskujesz zwrot z Urzędu Skarbowego.
          </span>
         </li>
         <li>
          <strong data-i18n="info_brak_belki">
-          Brak podatku Belki:
          </strong>
          <span data-i18n="info_brak_belki_text">
-          Twoje zyski nie są objęte 19% podatkiem od zysków kapitałowych.
          </span>
         </li>
        </ul>
@@ -445,13 +397,11 @@
        <h3 class="font-semibold text-slate-900 mb-2">
         💰
         <span data-i18n="info_co_jeszcze_warto">
-         Co jeszcze warto wiedzieć o wpłatach?
         </span>
        </h3>
        <ul class="list-disc pl-5 space-y-1">
         <li>
          <span data-i18n="info_kwoty_od_100">
-          Możesz wpłacać dowolne kwoty, już od
          </span>
          <strong>
           100 zł
@@ -459,10 +409,8 @@
          .
         </li>
         <li data-i18n="info_max_limit">
-         W każdym roku obowiązuje maksymalny limit wpłat (sprawdź w kalkulatorze).
         </li>
         <li data-i18n="info_osoby_uprawnione">
-         Możesz wskazać osoby uprawnione do otrzymania środków po Twojej śmierci - nie muszą być z Tobą spokrewnione.
         </li>
        </ul>
       </div>
@@ -470,32 +418,25 @@
        <h3 class="font-semibold text-slate-900 mb-3">
         🔄
         <span data-i18n="info_wyplata_zwrot_transfer">
-         Wypłata, zwrot i transfer - czym się różnią?
         </span>
        </h3>
        <div class="grid gap-3 sm:grid-cols-3">
         <div class="p-3 bg-emerald-50 border border-emerald-100 rounded-lg">
          <span class="font-bold text-emerald-900 block mb-1" data-i18n="info_wyplata">
-          Wypłata (po spełnieniu wszystkich warunków)
          </span>
          <span class="text-xs text-emerald-800" data-i18n="info_wyplata_1">
-          Tylko 10% zryczałtowanego podatku od całej kwoty
          </span>
         </div>
         <div class="p-3 bg-amber-50 border border-amber-100 rounded-lg">
          <span class="font-bold text-amber-900 block mb-1" data-i18n="info_zwrot">
-          Wcześniejszy zwrot
          </span>
          <span class="text-xs text-amber-800" data-i18n="info_zwrot_1">
-          Cała kwota podlega rozliczeniu według skali PIT
          </span>
         </div>
         <div class="p-3 bg-blue-50 border border-blue-100 rounded-lg">
          <span class="font-bold text-blue-900 block mb-1" data-i18n="info_transfer">
-          Przeniesienie do innego IKZE
          </span>
          <span class="text-xs text-blue-800" data-i18n="info_transfer_1">
-          Całkowicie bez podatku
          </span>
         </div>
        </div>
@@ -504,11 +445,9 @@
        <h3 class="font-semibold text-slate-900 mb-1">
         🎒
         <span data-i18n="info_16_lat">
-         IKZE już od 16. roku życia!
         </span>
        </h3>
        <p data-i18n="info_16_lat_nuance">
-        Do 18. roku życia na IKZE możesz wpłacać wyłącznie pieniądze zarobione na podstawie umowy o pracę (do wysokości uzyskanego dochodu). Po 18. roku życia - z dowolnego źródła.
        </p>
       </div>
      </div>
@@ -517,10 +456,9 @@
   </main>
   <footer class="bg-white border-t border-slate-200 mt-12 py-6">
    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500" data-i18n="footer_local">
-    Wszystkie obliczenia wykonywane są w przeglądarce użytkownika.
    </div>
   </footer>
-  <script defer="" src="index.js">
+  <script defer="" src="../index.js">
   </script>
  </body>
 </html>

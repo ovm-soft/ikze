@@ -10,12 +10,10 @@ function loadScript(src) {
 
 async function init() {
     try {
-        await loadScript('theme.js');
-        await loadScript('i18n.js');
-        await loadScript('calc.js');
+        await loadScript('/theme.js');
+        await loadScript('/i18n.js');
+        await loadScript('/calc.js');
 
-        // Run initialization logic after all scripts are injected
-        changeLanguage(currentLang);
         resetDefaults();
         calculate();
     } catch (err) {
