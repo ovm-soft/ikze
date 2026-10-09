@@ -1,5 +1,4 @@
-const currentLang = getCurrentLang();
-const knownLangs = ['pl', 'uk', 'en', 'fr', 'de'];
+let knownLangs = ['pl', 'uk', 'en', 'fr', 'de'];
 
 function changeLanguage(selectedLang) {
     let targetUrl;
@@ -16,11 +15,6 @@ function changeLanguage(selectedLang) {
 
     // Perform redirect
     window.location.href = targetUrl;
-}
-
-function getCurrentLang() {
-    let extractedLang = extractLangFromPathSegments(getCurrentPathSegments());
-    return extractedLang == null ? 'pl' : extractedLang;
 }
 
 function getCurrentPathSegments() {
