@@ -31,7 +31,7 @@ function pathContainsKnownLang(pathSegments) {
 }
 
 function extractLangFromPathSegments(pathSegments) {
-    return pathContainsKnownLang(pathSegments) ? pathSegments[1] : null;
+    return pathSegments[1];
 }
 
 function updateLangInPathSegments(pathSegments, selectedLang) {
