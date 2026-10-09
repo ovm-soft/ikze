@@ -64,6 +64,10 @@
     "info_transfer_1": "Całkowicie bez podatku",
     "info_16_lat": "IKZE już od 16. roku życia!",
     "info_16_lat_nuance": "Do 18. roku życia na IKZE możesz wpłacać wyłącznie pieniądze zarobione na podstawie umowy o pracę (do wysokości uzyskanego dochodu). Po 18. roku życia - z dowolnego źródła.",
+    "chart_title": "Wzrost czystego zysku w czasie (IKZE vs Bez IKZE)",
+    "chart_label_rok": "rok",
+    "chart_label_ikze": "Czysty zysk IKZE",
+    "chart_label_no_ikze": "Czysty zysk Bez IKZE",
     "footer_local": "Wszystkie obliczenia wykonywane są w przeglądarce użytkownika."
   },
   "uk": {
@@ -131,6 +135,10 @@
     "info_transfer_1": "Повністю без податку",
     "info_16_lat": "IKZE вже з 16 років!",
     "info_16_lat_nuance": "До 18 років на IKZE можна вносити лише гроші, зароблені на підставі трудового договору (у межах отриманого доходу). Після 18 років - з будь-якого джерела.",
+    "chart_title": "Зростання чистого прибутку з часом (IKZE проти Без IKZE)",
+    "chart_label_rok": "рік",
+    "chart_label_ikze": "Чистий прибуток IKZE",
+    "chart_label_no_ikze": "Чистий прибуток Без IKZE",
     "footer_local": "Усі розрахунки виконуються у браузері користувача."
   },
 
@@ -199,6 +207,10 @@
     "info_transfer_1": "Completely tax-free",
     "info_16_lat": "IKZE available from age 16!",
     "info_16_lat_nuance": "Until age 18, you can only contribute money earned under an employment contract to an IKZE (up to the amount of income earned). After age 18 — from any income source.",
+    "chart_title": "Growth of net profit over time (IKZE vs Without IKZE)",
+    "chart_label_rok": "year",
+    "chart_label_ikze": "IKZE Net Profit",
+    "chart_label_no_ikze": "Without IKZE Net Profit",
     "footer_local": "All calculations are performed locally in the user's browser."
   },
 
@@ -267,6 +279,10 @@
     "info_transfer_1": "Totalement exonéré d'impôt",
     "info_16_lat": "IKZE accessible dès 16 ans !",
     "info_16_lat_nuance": "Jusqu'à 18 ans, vous ne pouvez verser sur un IKZE que de l'argent gagné dans le cadre d'un contrat de travail (dans la limite du revenu perçu). Après 18 ans — depuis n'importe quelle source de revenus.",
+    "chart_title": "Évolution du bénéfice net au fil du temps (IKZE vs Sans IKZE)",
+    "chart_label_rok": "an",
+    "chart_label_ikze": "Bénéfice net IKZE",
+    "chart_label_no_ikze": "Bénéfice net Sans IKZE",
     "footer_local": "Tous les calculs sont effectués localement dans le navigateur de l'utilisateur."
   },
 
@@ -335,6 +351,10 @@
     "info_transfer_1": "Völlig steuerfrei",
     "info_16_lat": "IKZE bereits ab 16 Jahren!",
     "info_16_lat_nuance": "Bis zum 18. Lebensjahr dürfen Sie auf das IKZE nur Geld einzahlen, das aus einem Arbeitsvertrag stammt (bis zur Höhe des erzielten Einkommens). Ab 18 Jahren – aus beliebigen Einkommensquellen.",
+    "chart_title": "Wachstum des Reingewinns im Zeitverlauf (IKZE vs. Ohne IKZE)",
+    "chart_label_rok": "Jahr",
+    "chart_label_ikze": "IKZE Reingewinn",
+    "chart_label_no_ikze": "Ohne IKZE Reingewinn",
     "footer_local": "Alle Berechnungen werden lokal im Browser des Benutzers durchgeführt."
   }
 }

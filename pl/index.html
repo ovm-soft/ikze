@@ -10,6 +10,8 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com">
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+  </script>
   <script>
    tailwind.config = {
             darkMode: 'class',
@@ -111,6 +113,25 @@
   </header>
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <!-- Sekcja chart -->
+    <section class="lg:col-span-12 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-100 flex flex-col justify-between">
+     <h2 class="text-xl font-bold text-slate-900 pb-4 mb-6 border-b border-slate-100" data-i18n="chart_title">
+      Wzrost czystego zysku w czasie (IKZE vs Bez IKZE)
+     </h2>
+     <span data-i18n="chart_label_rok" hidden="hidden" id="chartLabelRokId">
+      rok
+     </span>
+     <span data-i18n="chart_label_ikze" hidden="hidden" id="chartLabelIKZEId">
+      Czysty zysk IKZE
+     </span>
+     <span data-i18n="chart_label_no_ikze" hidden="hidden" id="chartLabelNoIKZEId">
+      Czysty zysk Bez IKZE
+     </span>
+     <div class="relative w-full h-72">
+      <canvas id="profitChart">
+      </canvas>
+     </div>
+    </section>
     <!-- Panel boczny: Parametry -->
     <section class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-100 flex flex-col justify-between">
      <div>

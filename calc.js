@@ -210,4 +210,11 @@ function calculate() {
     updateBar('resWyplataPodatek', ryczalt10, maxValIKZE, 'bg-red-400');
     updateBar('resCalkowitaKorzyscIKZE', calkowitaKorzyscIKZE, maxValIKZE, 'bg-amber-500');
     updateBar('resCalkowitaKorzyscNoIKZE', calkowitaKorzyscNoIKZE, maxValNoIKZE, 'bg-amber-500');
+
+    const isCompound = getTypAkumulacji() === 'typAkumulacjiTak';
+
+    buildProfitChart(isCompound, czasWplat, wplataRoczna, stopaZwrotu, ulgaRoczna,
+        document.getElementById('chartLabelRokId').textContent.trim(),
+        document.getElementById('chartLabelIKZEId').textContent.trim(),
+        document.getElementById('chartLabelNoIKZEId').textContent.trim());
 }
