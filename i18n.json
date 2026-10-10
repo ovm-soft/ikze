@@ -27,8 +27,10 @@
     "return_calculation_type_comment": "Składany - zysk generuje kolejny zysk. Prosty - zysk liczony zawsze od samej sumy wpłat.",
     "env_no_server": "Bez serwera",
     "env_local": "Działa lokalnie w przeglądarce",
+
     "results_title": "Wyniki symulacji",
     "results_no_ikze": "Bez IKZE",
+    "results_no_ikze_difference": "19% Belki co roku, bez ulgi podatkowej",
     "results_label_years_2": "Czas dokonywania wpłat (lata)",
     "results_deposits_section": "Wpłaty",
     "results_1_year": "za rok",
@@ -51,7 +53,7 @@
     "info_zwrot_podatku_text": "wpłacone środki odliczasz od dochodu i uzyskujesz zwrot z Urzędu Skarbowego.",
     "info_brak_belki": "Brak podatku Belki:",
     "info_brak_belki_text": "Twoje zyski nie są objęte 19% podatkiem od zysków kapitałowych.",
-    "info_co_jeszcze_warto": "Co jeszcze warto wiedzieć o wpłatach?",
+    "info_co_jeszcze_warto": "Co jeszcze warto wiedzieć?",
     "info_kwoty_od_100": "Możesz wpłacać dowolne kwoty, już od ",
     "info_max_limit": "W każdym roku obowiązuje maksymalny limit wpłat (sprawdź w kalkulatorze).",
     "info_osoby_uprawnione": "Możesz wskazać osoby uprawnione do otrzymania środków po Twojej śmierci - nie muszą być z Tobą spokrewnione.",
@@ -68,7 +70,10 @@
     "chart_label_rok": "rok",
     "chart_label_ikze": "Czysty zysk IKZE",
     "chart_label_no_ikze": "Czysty zysk Bez IKZE",
-    "footer_local": "Wszystkie obliczenia wykonywane są w przeglądarce użytkownika."
+    "footer_local": "Wszystkie obliczenia wykonywane są w przeglądarce użytkownika.",
+
+    "my_ad_look_n_trace": "Rysowanie po konturze z użyciem kamery",
+    "my_ad_tmaps": "Google Maps Barszcz - różne niestandardowe mapy Google"
   },
   "uk": {
     "ikze": "IKZE",
@@ -98,8 +103,10 @@
     "return_calculation_type_comment": "Складний - прибуток генерує наступний прибуток. Простий - прибуток завжди рахується лише від суми внесків.",
     "env_no_server": "Без сервера",
     "env_local": "Працює локально в браузері",
+
     "results_title": "Результати симуляції",
     "results_no_ikze": "Без IKZE",
+    "results_no_ikze_difference": "19% податку на дохід від капіталу щороку, без податкової пільги",
     "results_label_years_2": "Період внесення коштів (роки)",
     "results_deposits_section": "Внески",
     "results_1_year": "за рік",
@@ -122,7 +129,7 @@
     "info_zwrot_podatku_text": "внесені кошти ви відраховуєте від доходу та отримуєте повернення від податкової інспекції.",
     "info_brak_belki": "Відсутність податку Belki:",
     "info_brak_belki_text": "ваш прибуток не підлягає 19% податку на доходи від приросту капіталу.",
-    "info_ca_jeszcze_warto": "Що ще варто знати про внески?",
+    "info_co_jeszcze_warto": "Що ще варто знати?",
     "info_kwoty_od_100": "Ви можете вносити будь-які суми, вже від ",
     "info_max_limit": "Щороку діє максимальний ліміт внесків (перевірте в калькуляторі).",
     "info_osoby_uprawnione": "Ви можете вказати осіб, уповноважених на отримання коштів у разі вашої смерті - вони не обов'язково мають бути вашими родичами.",
@@ -139,7 +146,10 @@
     "chart_label_rok": "рік",
     "chart_label_ikze": "Чистий прибуток IKZE",
     "chart_label_no_ikze": "Чистий прибуток Без IKZE",
-    "footer_local": "Усі розрахунки виконуються у браузері користувача."
+    "footer_local": "Усі розрахунки виконуються у браузері користувача.",
+
+    "my_ad_look_n_trace": "Малювання за контуром за допомогою камери",
+    "my_ad_tmaps": "Google Maps Борщ — різноманітні власні карти Google"
   },
 
   "en": {
@@ -170,8 +180,10 @@
     "return_calculation_type_comment": "Compounded — earnings generate further earnings. Simple — earnings are always calculated based solely on total contributions.",
     "env_no_server": "No server",
     "env_local": "Runs locally in the browser",
+
     "results_title": "Simulation results",
     "results_no_ikze": "Without IKZE",
+    "results_no_ikze_difference": "19% capital gains tax every year, no tax deduction",
     "results_label_years_2": "Contribution period (years)",
     "results_deposits_section": "Contributions",
     "results_1_year": "per year",
@@ -194,7 +206,7 @@
     "info_zwrot_podatku_text": "you deduct contributed funds from your income and receive a refund from the Tax Office.",
     "info_brak_belki": "No capital gains tax:",
     "info_brak_belki_text": "your profits are not subject to the 19% capital gains tax.",
-    "info_co_jeszcze_warto": "What else should you know about contributions?",
+    "info_co_jeszcze_warto": "What else is worth knowing?",
     "info_kwoty_od_100": "You can contribute any amount, starting from ",
     "info_max_limit": "There is a maximum contribution limit each year (check the calculator).",
     "info_osoby_uprawnione": "You can designate beneficiaries to receive the funds upon your death — they do not need to be related to you.",
@@ -211,7 +223,10 @@
     "chart_label_rok": "year",
     "chart_label_ikze": "IKZE Net Profit",
     "chart_label_no_ikze": "Without IKZE Net Profit",
-    "footer_local": "All calculations are performed locally in the user's browser."
+    "footer_local": "All calculations are performed locally in the user's browser.",
+
+    "my_ad_look_n_trace": "Tracing over contours using the camera",
+    "my_ad_tmaps": "Google Maps Borscht — various custom Google maps"
   },
 
   "fr": {
@@ -242,8 +257,10 @@
     "return_calculation_type_comment": "Composé — les gains génèrent de nouveaux gains. Simple — les gains sont toujours calculés uniquement sur le cumul des versements.",
     "env_no_server": "Sans serveur",
     "env_local": "Fonctionne localement dans le navigateur",
+
     "results_title": "Résultats de la simulation",
     "results_no_ikze": "Sans IKZE",
+    "results_no_ikze_difference": "19 % d'impôt sur les plus-values chaque année, sans déduction fiscale",
     "results_label_years_2": "Période de versement (années)",
     "results_deposits_section": "Versements",
     "results_1_year": "par an",
@@ -266,7 +283,7 @@
     "info_zwrot_podatku_text": "vous déduisez les sommes versées de votre revenu et obtenez un remboursement de l'administration fiscale.",
     "info_brak_belki": "Exonération de l'impôt sur les plus-values :",
     "info_brak_belki_text": "vos gains ne sont pas soumis à l'impôt de 19 % sur les plus-values mobilières.",
-    "info_co_jeszcze_warto": "Que faut-il savoir d'autre sur les versements ?",
+    "info_co_jeszcze_warto": "Que faut-il savoir d'autre ?",
     "info_kwoty_od_100": "Vous pouvez verser le montant de votre choix, dès ",
     "info_max_limit": "Chaque année, un plafond maximal de versement s'applique (à vérifier dans le calculateur).",
     "info_osoby_uprawnione": "Vous pouvez désigner des bénéficiaires pour recevoir les fonds à votre décès — il n'est pas nécessaire qu'ils aient un lien de parenté.",
@@ -283,7 +300,10 @@
     "chart_label_rok": "an",
     "chart_label_ikze": "Bénéfice net IKZE",
     "chart_label_no_ikze": "Bénéfice net Sans IKZE",
-    "footer_local": "Tous les calculs sont effectués localement dans le navigateur de l'utilisateur."
+    "footer_local": "Tous les calculs sont effectués localement dans le navigateur de l'utilisateur.",
+
+    "my_ad_look_n_trace": "Dessin sur les contours à l'aide de la caméra",
+    "my_ad_tmaps": "Google Maps Borsch — diverses cartes Google personnalisées"
   },
 
   "de": {
@@ -315,7 +335,9 @@
     "env_no_server": "Ohne Server",
     "env_local": "Läuft lokal im Browser",
     "results_title": "Simulationsergebnisse",
+
     "results_no_ikze": "Ohne IKZE",
+    "results_no_ikze_difference": "19 % Kapitalertragsteuer jedes Jahr, ohne Steuervorteil",
     "results_label_years_2": "Einzahlungsdauer (Jahre)",
     "results_deposits_section": "Einzahlungen",
     "results_1_year": "pro Jahr",
@@ -338,7 +360,7 @@
     "info_zwrot_podatku_text": "Sie setzen die eingezahlten Beträge vom Einkommen ab und erhalten eine Erstattung vom Finanzamt.",
     "info_brak_belki": "Keine Kapitalertragsteuer:",
     "info_brak_belki_text": "Ihre Gewinne unterliegen nicht der 19-prozentigen Kapitalertragsteuer.",
-    "info_co_jeszcze_warto": "Was sollte man noch über Einzahlungen wissen?",
+    "info_co_jeszcze_warto": "Was sollte man sonst noch wissen?",
     "info_kwoty_od_100": "Sie können beliebige Beträge einzahlen, bereits ab ",
     "info_max_limit": "In jedem Jahr gilt ein maximales Einzahlungslimit (im Rechner überprüfen).",
     "info_osoby_uprawnione": "Sie können Bezugsberechtigte für den Fall Ihres Todes benennen – diese müssen nicht mit Ihnen verwandt sein.",
@@ -355,6 +377,9 @@
     "chart_label_rok": "Jahr",
     "chart_label_ikze": "IKZE Reingewinn",
     "chart_label_no_ikze": "Ohne IKZE Reingewinn",
-    "footer_local": "Alle Berechnungen werden lokal im Browser des Benutzers durchgeführt."
+    "footer_local": "Alle Berechnungen werden lokal im Browser des Benutzers durchgeführt.",
+
+    "my_ad_look_n_trace": "Zeichnen nach Kontur mithilfe der Kamera",
+    "my_ad_tmaps": "Google Maps Borschtsch — verschiedene benutzerdefinierte Google Maps"
   }
 }

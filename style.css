@@ -1,0 +1,24 @@
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+input[type="range"] {
+    accent-color: #16a34a;
+}
+
+.google-app-link a {
+    display: inline-flex;
+    align-items: center;  /* vertically center image and text */
+    gap: 8px; /* space between icon and text */
+    text-decoration: none;
+    color: #00BFFF; /* keep text color consistent */
+}
+
+.google-app-link img {
+    display: block; /* remove bottom whitespace */
+}
+
+.google-app-link span {
+    font-weight: 600;
+    font-size: 1rem;
+}

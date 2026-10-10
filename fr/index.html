@@ -7,6 +7,7 @@
    Calculateur IKZE
   </title>
   <link href="/ikze/favicon.ico" rel="icon" type="image/x-icon"/>
+  <link href="/ikze/style.css" rel="stylesheet"/>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com">
   </script>
@@ -30,15 +31,6 @@
             }
         }
   </script>
-  <style>
-   body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        input[type="range"] {
-            accent-color: #16a34a;
-        }
-  </style>
   <link href="https://ovm-soft.github.io/ikze/fr/" rel="canonical"/>
   <link href="https://ovm-soft.github.io/ikze/pl/" hreflang="pl" rel="alternate"/>
   <link href="https://ovm-soft.github.io/ikze/uk/" hreflang="uk" rel="alternate"/>
@@ -277,11 +269,11 @@
           <td class="underline py-3.5 pl-4 text-sm font-bold text-center text-slate-700" data-i18n="ikze">
            IKZE
           </td>
-          <td class="py-3.5 pl-4 text-sm font-bold text-center text-slate-700" title="19% Belki, bez ulgi podatkowej">
+          <td class="py-3.5 pl-4 text-sm font-bold text-center text-slate-700">
            <span class="underline decoration-slate-400 decoration-dotted underline-offset-4 hover:decoration-slate-600 transition-colors" data-i18n="results_no_ikze">
             Sans IKZE
            </span>
-           <span class="cursor-help text-slate-400 font-normal">
+           <span class="cursor-help text-slate-400 font-normal" id="resultsHeaderNoIKZEHelp" title="19 % d'impôt sur les plus-values chaque année, sans déduction fiscale">
             ⓘ
            </span>
           </td>
@@ -422,6 +414,24 @@
       </button>
      </div>
     </section>
+    <div class="lg:col-span-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+     <div class="google-app-link">
+      <a href="https://play.google.com/store/apps/details?id=com.ovm.lookntrace" rel="noopener" target="_blank">
+       <img alt="Pobierz z Google Play" class="h-10" src="https://ovm-soft.github.io/be-kind/assets/google-play-badge-pl.png"/>
+       <span data-i18n="my_ad_look_n_trace">
+        Dessin sur les contours à l'aide de la caméra
+       </span>
+      </a>
+     </div>
+     <div class="google-app-link">
+      <a href="https://tmaps.one/" rel="noopener" target="_blank">
+       <img alt="Pobierz z Google Play" class="h-10" src="https://tmaps.one/wp-content/uploads/2023/07/FR.Paris_.Districts.v2-4.png"/>
+       <span data-i18n="my_ad_tmaps">
+        Google Maps Borsch — diverses cartes Google personnalisées
+       </span>
+      </a>
+     </div>
+    </div>
     <!-- Sekcja information -->
     <section class="lg:col-span-12 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-100 flex flex-col justify-between">
      <h2 class="text-xl font-bold text-slate-900 pb-4 mb-6 border-b border-slate-100" data-i18n="info_title">
@@ -466,7 +476,7 @@
        <h3 class="font-semibold text-slate-900 mb-2">
         💰
         <span data-i18n="info_co_jeszcze_warto">
-         Que faut-il savoir d'autre sur les versements ?
+         Que faut-il savoir d'autre ?
         </span>
        </h3>
        <ul class="list-disc pl-5 space-y-1">

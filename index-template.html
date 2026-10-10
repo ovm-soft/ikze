@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="title"></title>
     <link rel="icon" type="image/x-icon" href="/ikze/favicon.ico">
+    <link rel="stylesheet" href="/ikze/style.css">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -26,15 +27,6 @@
             }
         }
     </script>
-    <style>
-        body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        input[type="range"] {
-            accent-color: #16a34a;
-        }
-    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 h-full min-h-screen flex flex-col justify-between">
 
@@ -197,9 +189,9 @@
                             <tr class="border-b border-slate-100 bg-slate-50/50 hover:bg-slate-100 transition-colors">
                                 <td class="py-3.5 pr-4 text-sm font-bold text-slate-700"></td>
                                 <td data-i18n="ikze" class="underline py-3.5 pl-4 text-sm font-bold text-center text-slate-700"></td>
-                                <td class="py-3.5 pl-4 text-sm font-bold text-center text-slate-700" title="19% Belki, bez ulgi podatkowej">
+                                <td class="py-3.5 pl-4 text-sm font-bold text-center text-slate-700">
                                     <span data-i18n="results_no_ikze" class="underline decoration-slate-400 decoration-dotted underline-offset-4 hover:decoration-slate-600 transition-colors"></span>
-                                    <span class="cursor-help text-slate-400 font-normal">ⓘ</span>
+                                    <span id="resultsHeaderNoIKZEHelp" class="cursor-help text-slate-400 font-normal" title="">ⓘ</span>
                                 </td>
                             </tr>
                         </thead>
@@ -287,6 +279,21 @@
                 </button>
             </div>
         </section>
+
+        <div class="lg:col-span-12 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div class="google-app-link">
+                <a href="https://play.google.com/store/apps/details?id=com.ovm.lookntrace" target="_blank" rel="noopener">
+                    <img src="https://ovm-soft.github.io/be-kind/assets/google-play-badge-pl.png" class="h-10" alt="Pobierz z Google Play">
+                    <span data-i18n="my_ad_look_n_trace"></span>
+                </a>
+            </div>
+            <div class="google-app-link">
+                <a href="https://tmaps.one/" target="_blank" rel="noopener">
+                    <img src="https://tmaps.one/wp-content/uploads/2023/07/FR.Paris_.Districts.v2-4.png" class="h-10" alt="Pobierz z Google Play">
+                    <span data-i18n="my_ad_tmaps"></span>
+                </a>
+            </div>
+        </div>
 
         <!-- Sekcja information -->
         <section class="lg:col-span-12 bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-100 flex flex-col justify-between">
