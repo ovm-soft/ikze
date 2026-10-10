@@ -149,7 +149,7 @@
     "footer_local": "Усі розрахунки виконуються у браузері користувача.",
 
     "my_ad_look_n_trace": "Малювання за контуром за допомогою камери",
-    "my_ad_tmaps": "Google Maps Борщ — різноманітні власні карти Google"
+    "my_ad_tmaps": "Google Maps Борщ - різноманітні власні карти Google"
   },
 
   "en": {
@@ -177,7 +177,7 @@
     "label_return_calculation_type": "Return calculation method:",
     "radio_return_calculation_type_accu": "% with compounding (compound interest)",
     "radio_return_calculation_type_simple": "% without compounding (simple interest)",
-    "return_calculation_type_comment": "Compounded — earnings generate further earnings. Simple — earnings are always calculated based solely on total contributions.",
+    "return_calculation_type_comment": "Compounded - earnings generate further earnings. Simple — earnings are always calculated based solely on total contributions.",
     "env_no_server": "No server",
     "env_local": "Runs locally in the browser",
 
@@ -209,8 +209,8 @@
     "info_co_jeszcze_warto": "What else is worth knowing?",
     "info_kwoty_od_100": "You can contribute any amount, starting from ",
     "info_max_limit": "There is a maximum contribution limit each year (check the calculator).",
-    "info_osoby_uprawnione": "You can designate beneficiaries to receive the funds upon your death — they do not need to be related to you.",
-    "info_wyplata_zwrot_transfer": "Withdrawal, early return, and transfer — what is the difference?",
+    "info_osoby_uprawnione": "You can designate beneficiaries to receive the funds upon your death - they do not need to be related to you.",
+    "info_wyplata_zwrot_transfer": "Withdrawal, early return, and transfer - what is the difference?",
     "info_wyplata": "Withdrawal (after meeting all conditions)",
     "info_wyplata_1": "Only 10% flat-rate tax on the total amount",
     "info_zwrot": "Early return",
@@ -218,7 +218,7 @@
     "info_transfer": "Transfer to another IKZE",
     "info_transfer_1": "Completely tax-free",
     "info_16_lat": "IKZE available from age 16!",
-    "info_16_lat_nuance": "Until age 18, you can only contribute money earned under an employment contract to an IKZE (up to the amount of income earned). After age 18 — from any income source.",
+    "info_16_lat_nuance": "Until age 18, you can only contribute money earned under an employment contract to an IKZE (up to the amount of income earned). After age 18 - from any income source.",
     "chart_title": "Growth of net profit over time (IKZE vs Without IKZE)",
     "chart_label_rok": "year",
     "chart_label_ikze": "IKZE Net Profit",
@@ -226,7 +226,7 @@
     "footer_local": "All calculations are performed locally in the user's browser.",
 
     "my_ad_look_n_trace": "Tracing over contours using the camera",
-    "my_ad_tmaps": "Google Maps Borscht — various custom Google maps"
+    "my_ad_tmaps": "Google Maps Borscht - various custom Google maps"
   },
 
   "fr": {
@@ -254,7 +254,7 @@
     "label_return_calculation_type": "Mode de calcul du rendement :",
     "radio_return_calculation_type_accu": "% avec capitalisation (intérêts composés)",
     "radio_return_calculation_type_simple": "% sans capitalisation (intérêts simples)",
-    "return_calculation_type_comment": "Composé — les gains génèrent de nouveaux gains. Simple — les gains sont toujours calculés uniquement sur le cumul des versements.",
+    "return_calculation_type_comment": "Composé - les gains génèrent de nouveaux gains. Simple - les gains sont toujours calculés uniquement sur le cumul des versements.",
     "env_no_server": "Sans serveur",
     "env_local": "Fonctionne localement dans le navigateur",
 
@@ -287,7 +287,7 @@
     "info_kwoty_od_100": "Vous pouvez verser le montant de votre choix, dès ",
     "info_max_limit": "Chaque année, un plafond maximal de versement s'applique (à vérifier dans le calculateur).",
     "info_osoby_uprawnione": "Vous pouvez désigner des bénéficiaires pour recevoir les fonds à votre décès — il n'est pas nécessaire qu'ils aient un lien de parenté.",
-    "info_wyplata_zwrot_transfer": "Retrait, remboursement anticipé et transfert — quelles différences ?",
+    "info_wyplata_zwrot_transfer": "Retrait, remboursement anticipé et transfert - quelles différences ?",
     "info_wyplata": "Retrait (après respect de toutes les conditions)",
     "info_wyplata_1": "Seulement 10 % d'impôt forfaitaire sur la totalité du montant",
     "info_zwrot": "Remboursement anticipé",
@@ -295,7 +295,7 @@
     "info_transfer": "Transfert vers un autre IKZE",
     "info_transfer_1": "Totalement exonéré d'impôt",
     "info_16_lat": "IKZE accessible dès 16 ans !",
-    "info_16_lat_nuance": "Jusqu'à 18 ans, vous ne pouvez verser sur un IKZE que de l'argent gagné dans le cadre d'un contrat de travail (dans la limite du revenu perçu). Après 18 ans — depuis n'importe quelle source de revenus.",
+    "info_16_lat_nuance": "Jusqu'à 18 ans, vous ne pouvez verser sur un IKZE que de l'argent gagné dans le cadre d'un contrat de travail (dans la limite du revenu perçu). Après 18 ans - depuis n'importe quelle source de revenus.",
     "chart_title": "Évolution du bénéfice net au fil du temps (IKZE vs Sans IKZE)",
     "chart_label_rok": "an",
     "chart_label_ikze": "Bénéfice net IKZE",
@@ -303,7 +303,7 @@
     "footer_local": "Tous les calculs sont effectués localement dans le navigateur de l'utilisateur.",
 
     "my_ad_look_n_trace": "Dessin sur les contours à l'aide de la caméra",
-    "my_ad_tmaps": "Google Maps Borsch — diverses cartes Google personnalisées"
+    "my_ad_tmaps": "Google Maps Borsch - diverses cartes Google personnalisées"
   },
 
   "de": {
@@ -331,7 +331,7 @@
     "label_return_calculation_type": "Art der Renditeberechnung:",
     "radio_return_calculation_type_accu": "% mit Zinseszins (Zinseszinseffekt)",
     "radio_return_calculation_type_simple": "% ohne Zinseszins (einfache Verzinsung)",
-    "return_calculation_type_comment": "Zinseszins — Erträge erzeugen weitere Erträge. Einfach — Erträge werden immer nur auf die Summe der Einzahlungen berechnet.",
+    "return_calculation_type_comment": "Zinseszins - Erträge erzeugen weitere Erträge. Einfach - Erträge werden immer nur auf die Summe der Einzahlungen berechnet.",
     "env_no_server": "Ohne Server",
     "env_local": "Läuft lokal im Browser",
     "results_title": "Simulationsergebnisse",
@@ -372,7 +372,7 @@
     "info_transfer": "Übertragung auf ein anderes IKZE",
     "info_transfer_1": "Völlig steuerfrei",
     "info_16_lat": "IKZE bereits ab 16 Jahren!",
-    "info_16_lat_nuance": "Bis zum 18. Lebensjahr dürfen Sie auf das IKZE nur Geld einzahlen, das aus einem Arbeitsvertrag stammt (bis zur Höhe des erzielten Einkommens). Ab 18 Jahren – aus beliebigen Einkommensquellen.",
+    "info_16_lat_nuance": "Bis zum 18. Lebensjahr dürfen Sie auf das IKZE nur Geld einzahlen, das aus einem Arbeitsvertrag stammt (bis zur Höhe des erzielten Einkommens). Ab 18 Jahren - aus beliebigen Einkommensquellen.",
     "chart_title": "Wachstum des Reingewinns im Zeitverlauf (IKZE vs. Ohne IKZE)",
     "chart_label_rok": "Jahr",
     "chart_label_ikze": "IKZE Reingewinn",
@@ -380,6 +380,6 @@
     "footer_local": "Alle Berechnungen werden lokal im Browser des Benutzers durchgeführt.",
 
     "my_ad_look_n_trace": "Zeichnen nach Kontur mithilfe der Kamera",
-    "my_ad_tmaps": "Google Maps Borschtsch — verschiedene benutzerdefinierte Google Maps"
+    "my_ad_tmaps": "Google Maps Borschtsch - verschiedene benutzerdefinierte Google Maps"
   }
 }
