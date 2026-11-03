@@ -73,6 +73,7 @@
     "footer_local": "Wszystkie obliczenia wykonywane są w przeglądarce użytkownika.",
 
     "my_ad_look_n_trace": "Rysowanie po konturze z użyciem kamery",
+    "my_ad_pl_guide": "Wrocław i Polska – Przewodnik po Życiu",
     "my_ad_tmaps": "Google Maps Barszcz - różne niestandardowe mapy Google"
   },
   "uk": {
@@ -149,6 +150,7 @@
     "footer_local": "Усі розрахунки виконуються у браузері користувача.",
 
     "my_ad_look_n_trace": "Малювання за контуром за допомогою камери",
+    "my_ad_pl_guide": "Провідник по життю у Вроцлаві та Польщі",
     "my_ad_tmaps": "Google Maps Борщ - різноманітні власні карти Google"
   },
 
@@ -226,6 +228,7 @@
     "footer_local": "All calculations are performed locally in the user's browser.",
 
     "my_ad_look_n_trace": "Tracing over contours using the camera",
+    "my_ad_pl_guide": "Wrocław & Poland Life Guide",
     "my_ad_tmaps": "Google Maps Borscht - various custom Google maps"
   },
 
@@ -303,6 +306,7 @@
     "footer_local": "Tous les calculs sont effectués localement dans le navigateur de l'utilisateur.",
 
     "my_ad_look_n_trace": "Dessin sur les contours à l'aide de la caméra",
+    "my_ad_pl_guide": "Guide de la vie à Wrocław et en Pologne",
     "my_ad_tmaps": "Google Maps Borsch - diverses cartes Google personnalisées"
   },
 
@@ -380,6 +384,7 @@
     "footer_local": "Alle Berechnungen werden lokal im Browser des Benutzers durchgeführt.",
 
     "my_ad_look_n_trace": "Zeichnen nach Kontur mithilfe der Kamera",
+    "my_ad_pl_guide": "Life-Guide für Breslau und Polen",
     "my_ad_tmaps": "Google Maps Borschtsch - verschiedene benutzerdefinierte Google Maps"
   }
 }
